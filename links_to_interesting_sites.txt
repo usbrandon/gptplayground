@@ -1,0 +1,15 @@
+PyMuPDF4LLM is aimed to make it easier to extract PDF content in the format you need for LLM & RAG environments. It supports Markdown extraction as well as LlamaIndex document output.
+https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/
+
+Navigating AI regulations is challenging for enterprises across industries. LatticeFlow AI’s platform ensures compliance with evolving standards like the EU AI Act, helping you address biases, inaccuracies, and governance gaps. Confidently deploy AI systems that are safe, reliable, and compliant with the latest regulations.
+https://latticeflow.ai/platform/ai-assessments
+
+K8s and MLOps
+https://www.kubeflow.org/
+
+Super cool to deploy in AWS and allows the OpenAI API to be used to access any LLM running in AWS Bedrock.
+https://github.com/aws-samples/bedrock-access-gateway
+
+Entailment and grounding LLMs in facts. This LLM can be used to verify if an LLM has answered factually according to source material
+https://www.bespokelabs.ai/blog/hallucinations-fact-checking-entailment-and-all-that-what-does-it-all-mean
+https://www.bespokelabs.ai/bespoke-minicheck
