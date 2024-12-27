@@ -1,9 +1,9 @@
 """
-OpenAI API interaction module with retry functionality.
+OpenAI API interaction module with retry and error handling functionality.
 
 This module provides a robust interface for making requests to the OpenAI API
-with exponential backoff retry logic to handle transient failures. It uses
-environment variables for secure API key management.
+with exponential backoff retry logic to handle transient failures. It includes
+comprehensive error handling for common API exceptions.
 
 Dependencies:
     - tenacity: For retry logic
@@ -11,24 +11,42 @@ Dependencies:
     - python-dotenv: For environment variable management
 
 Author: Brandon Jackson
-Version: 1.0.0
+Version: 1.0.1
 """
 
 from tenacity import (
     retry,
     stop_after_attempt,
-    wait_random_exponential
+    wait_random_exponential,
+    retry_if_exception_type
 )
-from openai import OpenAI
+from openai import OpenAI, OpenAIError, APIError, RateLimitError, AuthenticationError, BadRequestError
 from dotenv import load_dotenv
 import os
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+# Initialize OpenAI client
+try:
+    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+except Exception as e:
+    logger.error(f"Failed to initialize OpenAI client: {str(e)}")
+    raise
 
-@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
+@retry(
+    wait=wait_random_exponential(min=1, max=60),
+    stop=stop_after_attempt(6),
+    retry=retry_if_exception_type((APIError, RateLimitError))
+)
 def get_response(model: str, message: dict) -> str:
     """
     Send a request to OpenAI API and get the response with retry logic.
@@ -46,19 +64,64 @@ def get_response(model: str, message: dict) -> str:
         str: The content of the model's response message
 
     Raises:
-        TenacityError: If all retry attempts fail after 6 attempts
-        OpenAIError: For API-specific errors not handled by retry logic
+        AuthenticationError: If API key is invalid or missing
+        BadRequestError: If the request is malformed or invalid
+        RateLimitError: If rate limit is exceeded (will retry)
+        APIError: If API encounters an error (will retry)
         ValueError: If the message dictionary is missing required keys
+        Exception: For unexpected errors
 
     Example:
         >>> message = {"role": "user", "content": "List ten holiday destinations."}
         >>> response = get_response("gpt-4", message)
         >>> print(response)
     """
-    response = client.chat.completions.create(
-        model=model,
-        messages=[message]
-    )
-    return response.choices[0].message.content
+    try:
+        # Validate input parameters
+        if not isinstance(message, dict) or 'role' not in message or 'content' not in message:
+            raise ValueError("Message must be a dictionary with 'role' and 'content' keys")
+        
+        if not model or not isinstance(model, str):
+            raise ValueError("Model must be a non-empty string")
 
-print(get_response("gpt-4o-mini", {"role": "user", "content": "List ten holiday destinations."}))
+        # Make API request
+        response = client.chat.completions.create(
+            model=model,
+            messages=[message]
+        )
+        
+        return response.choices[0].message.content
+
+    except AuthenticationError as e:
+        logger.error(f"Authentication failed: {str(e)}")
+        raise
+
+    except BadRequestError as e:
+        logger.error(f"Bad request error: {str(e)}")
+        raise
+
+    except RateLimitError as e:
+        # This will be caught by the retry decorator
+        logger.warning(f"Rate limit exceeded: {str(e)}")
+        raise
+
+    except APIError as e:
+        # This will be caught by the retry decorator
+        logger.warning(f"API error occurred: {str(e)}")
+        raise
+
+    except ValueError as e:
+        logger.error(f"Invalid input: {str(e)}")
+        raise
+
+    except Exception as e:
+        logger.error(f"Unexpected error occurred: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    try:
+        test_message = {"role": "user", "content": "List ten holiday destinations."}
+        response = get_response("gpt-4", test_message)
+        print(response)
+    except Exception as e:
+        logger.error(f"Error in main execution: {str(e)}")
