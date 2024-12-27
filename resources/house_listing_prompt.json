@@ -1,0 +1,10 @@
+[
+    {
+        "role": "system",
+        "content": "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous."
+    },
+    {
+        "role": "user",
+        "content": "Step into this beautiful two-story, single-family home located in Springfield, USA, priced at $350,000. This charming property features 4 bedrooms, 2.5 bathrooms, a spacious living room with a cozy fireplace, a modern kitchen with stainless steel appliances, and a large backyard perfect for family gatherings. The master bedroom includes an en-suite bathroom and a walk-in closet. Enjoy the convenience of an attached two-car garage and a recently updated HVAC system. Located near top-rated schools, parks, and shopping centers, this home is ideal for families looking for comfort and convenience."
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "real_estate_info",
+            "description": "Get the information about homes for sale from the body of the input text",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "home type": {
+                        "type": "string",
+                        "description": "Home type"
+                    },
+                    "location": {
+                        "type": "string",
+                        "description": "Location"
+                    },
+                    "price": {
+                        "type": "integer",
+                        "description": "Price"
+                    },
+                    "bedrooms": {
+                        "type": "integer",
+                        "description": "Number of bedrooms"
+                    }
+                }
+            }
+        }
+    }
+]
