@@ -197,12 +197,22 @@ def get_response_with_tools(
         # Make API request
         response = client.chat.completions.create(**api_params)
         
-        # Return function call arguments if requested and available
-        if return_function_call and hasattr(response.choices[0].message, 'tool_calls') and response.choices[0].message.tool_calls:
-            return response.choices[0].message.tool_calls[0].function.arguments
-        
-        # Otherwise return message content
-        return response.choices[0].message.content
+        # Check if return_function_call is requested and tool_calls are available
+        if return_function_call and hasattr(response.choices[0].message, 'tool_calls'):
+            return [
+                tool_call.function.arguments
+                for choice in response.choices
+                if hasattr(choice.message, 'tool_calls') and choice.message.tool_calls
+                for tool_call in choice.message.tool_calls
+            ]
+
+        # Otherwise, return all available message contents
+        return [
+            choice.message.content
+            for choice in response.choices
+            if hasattr(choice.message, 'content') and choice.message.content
+        ]
+
 
     except AuthenticationError as e:
         logger.error(f"Authentication failed: {str(e)}")

@@ -5,6 +5,10 @@
     },
     {
         "role": "user",
-        "content": "I recently received my order for testosterone in order 12384. The box was well packed and nothing was missing. It gave me confidence that the product quality would be good too."
+        "content": "I recently received my order for testosterone. The box was well packed and nothing was missing. It gave me confidence that the product quality would be good too."
+    },
+    {
+        "role": "user",
+        "content": "I recently received my package of NAD and estrogen injectables. My order number is #8675309 shipped by Fedex. The box was well packed and nothing was missing. It gave me confidence that the product quality would be good too."
     }
 ]
