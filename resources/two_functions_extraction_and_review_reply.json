@@ -1,0 +1,54 @@
+[{
+    "type": "function",
+    "function": {
+        "name": "extract_sentiment_and_product_features",
+        "description": "Extract the sentiment and product features from the listing",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "product": {
+                    "type": "string",
+                    "description": "The name"
+                },
+                "sentiment": {
+                    "type": "string",
+                    "description": "The overall sentiment of the listing"
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of features mentioned in the listing"
+                },
+                "community_features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of community features and locations nearby mentioned in the listing"
+                }
+            }
+        }
+    }
+}, {
+    "type": "function",
+    "function": {
+        "name": "comment_to_listing",
+        "description": "Reply politely about the listing. Provide a positive or negative sentiment.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "reply": {
+                    "type": "string",
+                    "description": "Reply to post in response to the listing"
+                },
+                "sentiment": {
+                    "type": "string",
+                    "description": "The sentiment of the reply"
+                }
+            }
+        }
+    }
+}
+]
