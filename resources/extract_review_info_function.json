@@ -1,0 +1,25 @@
+[{
+    "type": "function",
+    "function": {
+        "name": "extract_review_info",
+        "description": "Get the information about products, order number, and customer sentiment from the body of the input text",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "product name": {
+                    "type": "string",
+                    "description": "product"
+                },
+                "product variant": {
+                    "type": "string",
+                    "description": "sentiment"
+                },
+                "sentiment": {
+                    "type": "string",
+                    "description": "order_number"
+                }
+            }
+        }
+    }
+}
+]

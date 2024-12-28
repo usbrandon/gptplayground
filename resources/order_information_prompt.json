@@ -1,0 +1,10 @@
+[
+    {
+        "role": "system",
+        "content": "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous. The sentiment should be positive or negative or neutral."
+    },
+    {
+        "role": "user",
+        "content": "I recently received my order for testosterone in order 12384. The box was well packed and nothing was missing. It gave me confidence that the product quality would be good too."
+    }
+]
