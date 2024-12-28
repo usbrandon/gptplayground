@@ -27,6 +27,7 @@ import tiktoken
 import json
 from typing import Optional, List, Dict, Any, Union
 from pathlib import Path
+import json
 
 # Configure logging
 logging.basicConfig(
@@ -257,7 +258,10 @@ if __name__ == "__main__":
                 tools=function_def,
                 return_function_call=True
             )
-            print(f"Function call arguments: {response}")
+
+            parsed_data = [json.loads(item) for item in response]
+            print("Function call arguments:")
+            print(json.dumps(parsed_data, indent=2))
         else:
             print(f"Message exceeds token limit. Total tokens: {total_tokens}")
         
