@@ -2,21 +2,21 @@
     "type": "function",
     "function": {
         "name": "extract_review_info",
-        "description": "Get the information about products, order number, and customer sentiment from the body of the input text",
+        "description": "Get the information about products, order number, and customer sentiment from the body of the input text. If there are multiple products mentioned generate another output row. Do not output additional properties.",
         "parameters": {
             "type": "object",
             "properties": {
-                "product name": {
+                "product_name": {
                     "type": "string",
                     "description": "product"
                 },
-                "product variant": {
+                "sentiment": {
                     "type": "string",
                     "description": "sentiment"
                 },
-                "sentiment": {
+                "order_number": {
                     "type": "string",
-                    "description": "order_number"
+                    "description": "order number"
                 }
             }
         }
