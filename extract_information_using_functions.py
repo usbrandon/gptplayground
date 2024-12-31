@@ -13,20 +13,18 @@ Author: Brandon Jackson (Modified)
 Version: 1.1.0
 """
 
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_random_exponential,
-    retry_if_exception_type
-)
-from openai import OpenAI, OpenAIError, APIError, RateLimitError, AuthenticationError, BadRequestError
-from dotenv import load_dotenv
-import os
-import logging
-import tiktoken
 import json
-from typing import Optional, List, Dict, Any, Union
+import logging
+import os
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Union
+
+import tiktoken
+from dotenv import load_dotenv
+from openai import (APIError, AuthenticationError, BadRequestError, OpenAI,
+                    OpenAIError, RateLimitError)
+from tenacity import (retry, retry_if_exception_type, stop_after_attempt,
+                      wait_random_exponential)
 
 # Configure logging
 logging.basicConfig(
