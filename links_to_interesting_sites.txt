@@ -13,3 +13,6 @@ https://github.com/aws-samples/bedrock-access-gateway
 Entailment and grounding LLMs in facts. This LLM can be used to verify if an LLM has answered factually according to source material
 https://www.bespokelabs.ai/blog/hallucinations-fact-checking-entailment-and-all-that-what-does-it-all-mean
 https://www.bespokelabs.ai/bespoke-minicheck
+
+This site has kits that can help you test your agents against bad actors
+https://adversarial-robustness-toolbox.readthedocs.io/en/latest/
