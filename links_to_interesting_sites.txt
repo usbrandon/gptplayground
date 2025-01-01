@@ -69,3 +69,9 @@ https://www.linkedin.com/posts/davidsauerwein_forecasting-deeplearning-machinele
 2024-12-31
 Understanding Deep Learning 
 https://udlbook.github.io/udlbook/
+
+
+Introduction to t-SNE (t-Distributed Stochastic Neighbor Embedding)
+Since LLMs store the meanings of words and sentences within highly dimensional space, it is very difficult to visualize it and explore what is happening.
+There are mathematical techniques like PCA and t-SNE that allow transforming the points to 3d or 2d space for graphing.
+https://www.datacamp.com/tutorial/introduction-t-sne

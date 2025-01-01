@@ -8,4 +8,4 @@ response_dict = {'data': [{'embedding': [0.035307466983795166, 0.049424771219491
 print(json.dumps(response_dict, indent=2))
  
 # As an alterative there is a built in function in Python for pretty printing JSON -- I prefer the json.dumps method.
-pprint.pprint(response_dict)
+#pprint.pprint(response_dict)
