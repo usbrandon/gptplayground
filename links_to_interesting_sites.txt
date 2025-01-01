@@ -16,3 +16,11 @@ https://www.bespokelabs.ai/bespoke-minicheck
 
 This site has kits that can help you test your agents against bad actors
 https://adversarial-robustness-toolbox.readthedocs.io/en/latest/
+
+James Bentley has some nice repos, one of them covers time series forecasting.
+https://github.com/smartaces
+
+
+This Youtube video is him walking through the code in his repo 
+https://www.youtube.com/watch?v=jyrOmIiI2Bc
+https://github.com/smartaces/amazon-chronos-t5-sales-forecasting
