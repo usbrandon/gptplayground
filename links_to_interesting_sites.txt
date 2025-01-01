@@ -14,8 +14,21 @@ Entailment and grounding LLMs in facts. This LLM can be used to verify if an LLM
 https://www.bespokelabs.ai/blog/hallucinations-fact-checking-entailment-and-all-that-what-does-it-all-mean
 https://www.bespokelabs.ai/bespoke-minicheck
 
+
+
 This site has kits that can help you test your agents against bad actors
 https://adversarial-robustness-toolbox.readthedocs.io/en/latest/
+
+OpenAI has a collection of tests for content in different topic areas like US Foreign Policy, STEM, etc.
+It helps validate that the models perform in the real world in a way consistent with the training data.
+https://github.com/openai/evals
+
+Safety and Moderation API (OpenAI)
+https://platform.openai.com/docs/guides/safety-best-practices
+1. Limit token lenght for input
+2. Know your customer
+3. Use system prompts and prompt engineering to keep the model from going off the rails.
+
 
 James Bentley has some nice repos, one of them covers time series forecasting.
 https://github.com/smartaces
