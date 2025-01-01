@@ -24,3 +24,30 @@ https://github.com/smartaces
 This Youtube video is him walking through the code in his repo 
 https://www.youtube.com/watch?v=jyrOmIiI2Bc
 https://github.com/smartaces/amazon-chronos-t5-sales-forecasting
+
+
+== David Sauerwein =================
+Many forecasting use cases lack the data volumes to benefit from deep learning. The rise of time series foundation models (TSFMs) is changing this landscape. Here's a summary of the latest approaches and their potential impact.
+
+𝐓𝐡𝐞 𝐃𝐚𝐭𝐚 𝐒𝐢𝐳𝐞 𝐂𝐡𝐚𝐥𝐥𝐞𝐧𝐠𝐞
+
+Companies like Amazon, Google, and Zalando rely heavily on deep learning models for forecasting. Yet, practitioners are often disappointed when they try deep learning on their use cases. Use cases with < 10,000 time series never benefit from deep learning scaling laws.
+
+This situation mirrors natural language processing (NLP). Typical NLP use cases can't train effective transformer models because of limited document availability. Instead, they use foundation models trained on massive datasets by selected companies. These models, having learned the general structure of language, can be adapted to specific tasks through few-shot prompting, retrieval-augmented generation (RAG), or fine-tuning.
+
+𝐈𝐧𝐭𝐫𝐨𝐝𝐮𝐜𝐢𝐧𝐠 𝐓𝐢𝐦𝐞 𝐒𝐞𝐫𝐢𝐞𝐬 𝐅𝐨𝐮𝐧𝐝𝐚𝐭𝐢𝐨𝐧 𝐌𝐨𝐝𝐞𝐥𝐬 (𝐓𝐒𝐅𝐌𝐬)
+
+TSFMs follow a similar concept. Companies with extensive compute and data resources develop foundation models with robust generalization capabilities. These models can then be customized for specific use cases. This means benefits of TSFMs are:
+
+1) Even small-scale use cases can benefit from advanced deep learning methods, with the prospect of using multi-modality in the future (see below; comments)
+2) TSFMs can deliver impressive accuracy even in scenarios where standard methods (like XGBoost) struggle. An example are cold-start problems.
+
+𝐓𝐲𝐩𝐞𝐬 𝐨𝐟 𝐓𝐒𝐅𝐌𝐬
+
+There are two primary approaches to TSFMs:
+
+1. Pre-trained Models from Scratch: Built on vast sets of curated time series data. Examples: TimesFM (Google), TimeGPT (Nixla), ForecastPFN, and LagLlama.
+2. Bootstrapped from LLMs: Use the hidden structure in sentences that LLMs are trained on, viewing them as time series. Examples: Chronos (Amazon) and TimeLLM.
+.....
+Source:
+https://www.linkedin.com/posts/davidsauerwein_forecasting-deeplearning-machinelearning-activity-7220748332694945792-dmKv/?utm_source=share&utm_medium=member_desktop
