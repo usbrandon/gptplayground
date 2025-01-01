@@ -64,3 +64,8 @@ There are two primary approaches to TSFMs:
 .....
 Source:
 https://www.linkedin.com/posts/davidsauerwein_forecasting-deeplearning-machinelearning-activity-7220748332694945792-dmKv/?utm_source=share&utm_medium=member_desktop
+
+
+2024-12-31
+Understanding Deep Learning 
+https://udlbook.github.io/udlbook/
