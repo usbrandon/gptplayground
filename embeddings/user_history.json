@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Remote-Controlled Dinosaur Toy",
+        "short_description": "Roar into action with this remote-controlled dinosaur toy with lifelike movements.",
+        "price": 49.99,
+        "category": "Toys",
+        "features": [
+            "Realistic dinosaur sound effects",
+            "Walks and roars like a real dinosaur",
+            "Remote control included",
+            "Educational and entertaining"
+        ]
+    },
+    {
+        "title": "Building Blocks Deluxe Set",
+        "short_description": "Unleash your creativity with this deluxe set of building blocks for endless fun.",
+        "price": 34.99,
+        "category": "Toys",
+        "features": [
+            "Includes 500+ colorful building blocks",
+            "Promotes STEM learning and creativity",
+            "Compatible with other major brick brands",
+            "Comes with a durable storage container",
+            "Ideal for children ages 3 and up"
+        ]
+    }
+]
